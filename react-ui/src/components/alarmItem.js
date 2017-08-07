@@ -8,15 +8,15 @@ const getFormattedUei = uei => {
   return ret.charAt(0).toUpperCase() + ret.slice(1);
 }
 
-const AlarmItem = (props) => (
+const AlarmItem = ({ alarm, onClick }) => (
   <div className="panel panel-default">
     <div className="panel-heading">
-      <Link to={`/alarms/${props.alarm.id}`} onClick={props.onClick}>
-        <h3 className="panel-title">{ getFormattedUei(props.alarm.uei) }</h3>
+      <Link to={`/alarms/${alarm.id}`} onClick={onClick}>
+        <h3 className="panel-title">{ getFormattedUei(alarm.uei) }</h3>
       </Link>
     </div>
     <div className="panel-body">
-      { props.alarm.logMessage }
+      { alarm.logMessage }
     </div>
   </div>
 )

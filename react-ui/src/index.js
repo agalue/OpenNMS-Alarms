@@ -16,7 +16,7 @@ ReactDOM.render(
     <BrowserRouter>
       <App>
         <Route exact path='/' render={() => <Redirect from='/' to='/alarms' />} />
-        <Route path='/alarms' component={AlarmsContainer} />
+        <Route exact path='/alarms' component={AlarmsContainer} />
         <Route path='/alarms/:id' component={AlarmContainer} />
       </App>
     </BrowserRouter>

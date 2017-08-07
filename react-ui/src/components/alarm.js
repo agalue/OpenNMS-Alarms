@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 
 import BackButton from './back';
 
-const Alarm = (props) => {
-  const { alarm } = props;
+const Alarm = ({ alarm }) => {
   return (
     alarm ?
     <div>

@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 
 import AlarmItem from './alarmItem';
 
-const Alarms = (props) => {
-  const { alarms, loading } = props.data;
+const Alarms = ({ data: { alarms, loading }, setAlarm, fetchAlarms }) => {
   return(
     loading ?
     <div className="jumbotron">
@@ -13,7 +12,7 @@ const Alarms = (props) => {
     :
     <div>
       <p>
-        <button className="btn btn-primary" type="button" onClick={() => props.fetchAlarms()}>
+        <button className="btn btn-primary" type="button" onClick={fetchAlarms}>
           <span className="glyphicon glyphicon-refresh" aria-hidden="true"></span> Load Alarms
         </button>
       </p>
@@ -22,7 +21,7 @@ const Alarms = (props) => {
           <AlarmItem
             key={alarm.id}
             alarm={alarm}
-            onClick={() => props.setAlarm(alarm)}/>
+            onClick={() => setAlarm(alarm)}/>
         )
       }
     </div>

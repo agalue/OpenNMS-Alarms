@@ -1,0 +1,11 @@
+<p>
+  <button class="btn btn-primary" type="button" (click)="fetchAlarms()">
+    <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> Load Alarms
+  </button>
+</p>
+
+<div class="jumbotron" *ngIf="loading">
+  <h3>Loading ... Please wait.</h3>
+</div>
+
+<app-alarm-item *ngFor="let alarm of alarms" [alarm]="alarm"></app-alarm-item>

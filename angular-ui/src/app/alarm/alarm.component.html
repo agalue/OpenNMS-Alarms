@@ -1,0 +1,18 @@
+<p>
+  <button type="button" class="btn btn-danger" (click)="goBack()">
+    <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Back
+  </button>
+</p>
+
+<div class="panel panel-default" *ngIf="alarm != null; else elseBlock">
+  <div class="panel-heading">
+    <h3 class="panel-title">Alarm ID {{ alarm.id }}</h3>
+  </div>
+  <div class="panel-body" [innerHTML]="alarm.description"></div>
+</div>
+
+<ng-template #elseBlock>
+  <div className="jumbotron">
+    Looks like you haven't selected an alarm
+  </div>
+</ng-template>

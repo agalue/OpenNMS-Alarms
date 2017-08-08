@@ -16,7 +16,6 @@ export default class Alarms extends React.Component {
   fetchAlarms() {
     this.setState({loading: true});
     AlarmsService.getAlarms().then(data => {
-      console.log(data);
       this.setState({loading: false, alarms: data.alarm});
     });
   }

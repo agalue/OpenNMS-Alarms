@@ -2,9 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Redirect } from 'react-router-dom';
 
-import App from './components/app';
-import Alarms from './components/alarms';
-import Alarm from './components/alarm';
+import App from './components/App';
+import Alarms from './components/Alarms';
+import Alarm from './components/Alarm';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';

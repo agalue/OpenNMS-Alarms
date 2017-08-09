@@ -14,8 +14,11 @@ const AlarmItem = ({ alarm }) => (
         <h3 className="panel-title">{ getFormattedUei(alarm.uei) }</h3>
       </Link>
     </div>
-    <div className="panel-body">
+    <div className={`panel-body ${alarm.severity}`}>
       { alarm.logMessage }
+    </div>
+    <div className="panel-footer clearfix">
+      <div className="pull-right">{ new Date(alarm.lastEventTime).toString() }</div>
     </div>
   </div>
 )

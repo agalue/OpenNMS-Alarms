@@ -1,6 +1,6 @@
 import React from 'react';
 
-import AlarmItem from './alarmItem';
+import AlarmItem from './AlarmItem';
 import AlarmsService from '../services/alarms';
 
 export default class Alarms extends React.Component {

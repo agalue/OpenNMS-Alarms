@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import AlarmItem from './alarmItem';
+import AlarmItem from './AlarmItem';
 
 const Alarms = ({ data: { alarms, loading }, setAlarm, fetchAlarms }) => {
   return(

@@ -3,10 +3,10 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Redirect } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
-import App from './components/app';
-import AlarmsContainer from './containers/alarms';
-import AlarmContainer from './containers/alarm';
-import AlarmsStore from './store';
+import App from './components/App';
+import AlarmsContainer from './components/AlarmsContainer';
+import AlarmContainer from './components/AlarmContainer';
+import AlarmsStore from './redux/store';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';

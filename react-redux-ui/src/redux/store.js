@@ -2,8 +2,8 @@ import { createStore, applyMiddleware, combineReducers } from 'redux';
 import logger from 'redux-logger';
 import promise from 'redux-promise-middleware';
 
-import alarmsReducer from './reducers/alarms';
-import alarmReducer from './reducers/alarm';
+import alarmsReducer from './modules/alarms';
+import alarmReducer from './modules/alarm';
 
 export default createStore(
   combineReducers({

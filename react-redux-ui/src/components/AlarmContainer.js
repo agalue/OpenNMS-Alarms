@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import Alarm from '../components/alarm';
+import Alarm from './Alarm';
 
 const mapStateToProps = (state) => ({
   alarm: state.alarmReducer

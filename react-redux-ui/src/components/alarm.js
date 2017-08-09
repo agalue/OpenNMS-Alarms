@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import BackButton from './back';
+import BackButton from './BackButton';
 
 const Alarm = ({ alarm }) => {
   return (

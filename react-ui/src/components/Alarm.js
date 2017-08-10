@@ -4,8 +4,6 @@ import BackButton from './BackButton';
 import HTMLContent from './HTMLContent';
 import SeverityPanelBody from './SeverityPanelBody';
 
-import AlarmsService from '../services/alarms';
-
 function AlarmDescription({alarm}) {
   return (
     <div className="panel panel-default">
@@ -48,24 +46,8 @@ function AlarmParameters({alarm}) {
   )
 }
 
-export default class Alarm extends React.Component {
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      alarm: null
-    }
-  }
-
-  componentWillMount() {
-    AlarmsService.getAlarm(this.props.match.params.id).then(alarm => {
-      this.setState({alarm});
-    });
-  }
-
-  render() {
-    let {alarm} = this.state;
-    return (
+export default function Alarm({alarm}) {
+  return(
     <div>
       <BackButton/>
       { alarm ? (
@@ -77,7 +59,5 @@ export default class Alarm extends React.Component {
         <div className="jumbotron">Looks like you haven't selected an alarm</div>
       )}
     </div>
-    );
-  }
-
+  )
 }

@@ -36,8 +36,7 @@ class AlarmItem extends React.Component {
 }
 
 AlarmItem.propTypes = {
-  alarm: PropTypes.object,
-  onClick: PropTypes.func.isRequired
+  alarm: PropTypes.object
 }
 
 export default AlarmItem;

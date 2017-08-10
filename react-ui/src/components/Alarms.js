@@ -13,6 +13,11 @@ export default class Alarms extends React.Component {
     }
   }
 
+  componentDidMount() {
+    let { alarms } = this.state;
+    alarms.length === 0 && this.fetchAlarms();
+  }
+
   fetchAlarms = (e) => {
     this.setState({loading: true});
     AlarmsService.getAlarms().then(data => {
@@ -30,7 +35,7 @@ export default class Alarms extends React.Component {
       <div>
         <p>
           <button className="btn btn-primary" type="button" onClick={this.fetchAlarms}>
-            <span className="glyphicon glyphicon-refresh" aria-hidden="true"></span> Load Alarms
+            <span className="glyphicon glyphicon-refresh" aria-hidden="true"></span> Refresh Alarms
           </button>
         </p>
         { alarms.map(alarm => <AlarmItem key={alarm.id} alarm={alarm} />) }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { AlarmsService } from '../alarms.service';
 
@@ -6,12 +6,16 @@ import { AlarmsService } from '../alarms.service';
   selector: 'app-alarms',
   templateUrl: './alarms.component.html'
 })
-export class AlarmsComponent {
+export class AlarmsComponent implements OnInit {
 
   loading = false;
   alarms: Object[] = [];
 
   constructor(private alarmsService: AlarmsService) { }
+
+  ngOnInit() {
+    this.fetchAlarms();
+  }
 
   fetchAlarms() {
     this.loading = true;

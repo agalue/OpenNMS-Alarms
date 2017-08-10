@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import BackButton from './BackButton';
 import HTMLContent from './HTMLContent';
@@ -44,6 +45,10 @@ function AlarmParameters({alarm}) {
       </SeverityPanelBody>
     </div>
   )
+}
+
+Alarm.propTypes = {
+  alarm: PropTypes.object
 }
 
 export default function Alarm({alarm}) {

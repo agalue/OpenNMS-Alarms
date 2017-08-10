@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import AlarmItem from './AlarmItem';
 
-export default class Alarms extends React.Component {
+class Alarms extends React.Component {
 
   componentDidMount() {
     let { alarms, fetchAlarms } = this.props;
@@ -28,3 +29,12 @@ export default class Alarms extends React.Component {
   }
 
 }
+
+Alarms.propTypes = {
+  alarms: PropTypes.array.isRequired,
+  loading: PropTypes.bool.isRequired,
+  fetchAlarms: PropTypes.func.isRequired,
+  setAlarm: PropTypes.func.isRequired
+}
+
+export default Alarms;

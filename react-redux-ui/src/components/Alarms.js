@@ -6,12 +6,12 @@ import AlarmItem from './AlarmItem';
 class Alarms extends React.Component {
 
   componentDidMount() {
-    let { data: { alarms }, fetchAlarms } = this.props;
+    let { alarms, fetchAlarms } = this.props;
     alarms.length === 0 && fetchAlarms();
   }
 
   render() {
-    let { data: { alarms, loading }, setAlarm, fetchAlarms } = this.props;
+    let { loading, alarms, fetchAlarms, setAlarm } = this.props;
     return (loading ? (
       <div className="jumbotron">
         <h3>Loading ... Please wait.</h3>
@@ -31,10 +31,8 @@ class Alarms extends React.Component {
 }
 
 Alarms.propTypes = {
-  data: PropTypes.shape({
-    alarms: PropTypes.array.isRequired,
-    loading: PropTypes.bool.isRequired
-  }),
+  alarms: PropTypes.array.isRequired,
+  loading: PropTypes.bool.isRequired,
   fetchAlarms: PropTypes.func.isRequired,
   setAlarm: PropTypes.func.isRequired
 }

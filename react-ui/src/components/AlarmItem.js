@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 import HTMLContent from './HTMLContent';
@@ -10,7 +11,7 @@ function getFormattedUei(uei) {
   return ret.charAt(0).toUpperCase() + ret.slice(1);
 }
 
-export default class AlarmItem extends React.Component {
+class AlarmItem extends React.Component {
   onClick = () => {
     let {alarm, setAlarm} = this.props;
     setAlarm(alarm);
@@ -33,3 +34,9 @@ export default class AlarmItem extends React.Component {
     )
   }
 }
+
+AlarmItem.propTypes = {
+  alarm: PropTypes.object
+}
+
+export default AlarmItem;

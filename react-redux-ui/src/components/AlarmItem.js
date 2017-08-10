@@ -11,23 +11,33 @@ function getFormattedUei(uei) {
   return ret.charAt(0).toUpperCase() + ret.slice(1);
 }
 
+class AlarmItem extends React.Component {
+  onClick = () => {
+    let {alarm, setAlarm} = this.props;
+    setAlarm(alarm);
+  }
+  
+  render() {
+    let {alarm} = this.props;
+    return (
+      <div className="panel panel-default">
+        <div className="panel-heading clearfix">
+          <Link to={`/alarms/${alarm.id}`} onClick={this.onClick}>
+            <h3 className="panel-title">{getFormattedUei(alarm.uei)}</h3>
+            <span className="pull-right">{new Date(alarm.lastEventTime).toString()}</span>
+          </Link>
+        </div>
+        <SeverityPanelBody severity={alarm.severity}>
+          <HTMLContent content={alarm.logMessage} />
+        </SeverityPanelBody>
+      </div>
+    )
+  }
+}
+
 AlarmItem.propTypes = {
   alarm: PropTypes.object,
   onClick: PropTypes.func.isRequired
 }
 
-export default function AlarmItem ({alarm, onClick}) {
-  return(
-    <div className="panel panel-default">
-      <div className="panel-heading clearfix">
-        <Link to={`/alarms/${alarm.id}`} onClick={onClick}>
-          <h3 className="panel-title">{getFormattedUei(alarm.uei)}</h3>
-          <span className="pull-right">{new Date(alarm.lastEventTime).toString()}</span>
-        </Link>
-      </div>
-      <SeverityPanelBody severity={alarm.severity}>
-        <HTMLContent content={alarm.logMessage} />
-      </SeverityPanelBody>
-    </div>
-  )
-}
+export default AlarmItem;

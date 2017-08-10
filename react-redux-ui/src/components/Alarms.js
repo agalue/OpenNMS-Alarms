@@ -26,7 +26,7 @@ export default function Alarms({ data: { alarms, loading }, setAlarm, fetchAlarm
         </button>
       </p>
       {
-        alarms.map(alarm => <AlarmItem key={alarm.id} alarm={alarm} onClick={() => setAlarm(alarm)}/>
+        alarms.map(alarm => <AlarmItem key={alarm.id} alarm={alarm} setAlarm={setAlarm}/>
         )
       }
     </div>

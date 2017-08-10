@@ -27,4 +27,8 @@ export class AlarmComponent {
     this.router.navigate(['../']);
   }
 
+  getBodyClass() : string {
+    return `panel-body ${this.alarm['severity']}`;
+  }
+
 }

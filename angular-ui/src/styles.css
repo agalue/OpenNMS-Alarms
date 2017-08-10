@@ -1,1 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
+
+.CRITICAL {
+  background-color: #f5cdcd
+}
+
+.MAJOR {
+  background-color: #ffd7cd
+}
+
+.MINOR {
+  background-color: #ffebcd
+}
+
+.WARNING {
+  background-color: #fff5cd
+}
+
+.NORMAL {
+  background-color: #d7e1cd
+}
+
+.CLEARED {
+  background-color: #eeeeee
+}
+
+.INDETERMINATE {
+  background-color: #ebebcd
+}

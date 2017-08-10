@@ -15,4 +15,7 @@ export class AlarmItemComponent {
     return ret.charAt(0).toUpperCase() + ret.slice(1);
   }
 
+  getBodyClass() : string {
+    return `panel-body ${this.alarm['severity']}`;
+  }
 }

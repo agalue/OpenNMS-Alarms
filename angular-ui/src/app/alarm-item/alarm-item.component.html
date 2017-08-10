@@ -2,7 +2,7 @@
   <div class="panel-heading" [routerLink]="['/alarms', alarm.id]">
     <h3 class="panel-title">{{ getFormattedUei() }}</h3>
   </div>
-  <div class="panel-body">
+  <div [class]="getBodyClass()">
     {{ alarm.logMessage }}
   </div>
 </div>

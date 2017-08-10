@@ -15,9 +15,9 @@ ReactDOM.render(
   <Provider store={AlarmsStore}>
     <BrowserRouter>
       <App>
-        <Route exact path='/' render={() => <Redirect from='/' to='/alarms' />} />
         <Route exact path='/alarms' component={AlarmsContainer} />
         <Route path='/alarms/:id' component={AlarmContainer} />
+        <Redirect from='*' to='/alarms' />
       </App>
     </BrowserRouter>
   </Provider>, 

@@ -12,9 +12,9 @@ import './index.css';
 ReactDOM.render(
   <BrowserRouter>
     <App>
-      <Route exact path='/' render={() => <Redirect from='/' to='/alarms' />} />
       <Route exact path='/alarms' component={Alarms} />
       <Route path='/alarms/:id' component={Alarm} />
+      <Redirect from='*' to='/alarms' />
     </App>
   </BrowserRouter>,
   document.getElementById('root')

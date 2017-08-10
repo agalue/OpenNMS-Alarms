@@ -3,7 +3,16 @@ import PropTypes from 'prop-types';
 
 import AlarmItem from './AlarmItem';
 
-const Alarms = ({ data: { alarms, loading }, setAlarm, fetchAlarms }) => {
+Alarms.propTypes = {
+  data: PropTypes.shape({
+    alarms: PropTypes.array.isRequired,
+    loading: PropTypes.bool.isRequired
+  }),
+  fetchAlarms: PropTypes.func.isRequired,
+  setAlarm: PropTypes.func.isRequired
+}
+
+export default function Alarms({ data: { alarms, loading }, setAlarm, fetchAlarms }) {
   return(
     loading ?
     <div className="jumbotron">
@@ -17,24 +26,11 @@ const Alarms = ({ data: { alarms, loading }, setAlarm, fetchAlarms }) => {
         </button>
       </p>
       {
-        alarms.map(alarm =>
-          <AlarmItem
-            key={alarm.id}
-            alarm={alarm}
-            onClick={() => setAlarm(alarm)}/>
+        alarms.map(alarm => <AlarmItem key={alarm.id} alarm={alarm} onClick={() => setAlarm(alarm)}/>
         )
       }
     </div>
-  );
-};
-
-Alarms.propTypes = {
-  data: PropTypes.shape({
-    alarms: PropTypes.array.isRequired,
-    loading: PropTypes.bool.isRequired
-  }),
-  fetchAlarms: PropTypes.func.isRequired,
-  setAlarm: PropTypes.func.isRequired
+  )
 }
 
-export default Alarms;
+

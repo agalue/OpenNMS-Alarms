@@ -5,15 +5,15 @@ import AlarmsService from '../services/alarms';
 
 export default class Alarms extends React.Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       loading: false,
       alarms: []      
     }
   }
 
-  fetchAlarms() {
+  fetchAlarms = (e) => {
     this.setState({loading: true});
     AlarmsService.getAlarms().then(data => {
       this.setState({loading: false, alarms: data.alarm});
@@ -22,22 +22,20 @@ export default class Alarms extends React.Component {
 
   render() {
     let { loading, alarms } = this.state;
-    return(
-      loading ?
+    return (loading ? (
       <div className="jumbotron">
         <h3>Loading ... Please wait.</h3>
       </div>
-      :
+    ) : (
       <div>
         <p>
-          <button className="btn btn-primary" type="button" onClick={() => this.fetchAlarms()}>
+          <button className="btn btn-primary" type="button" onClick={this.fetchAlarms}>
             <span className="glyphicon glyphicon-refresh" aria-hidden="true"></span> Load Alarms
           </button>
         </p>
-        {
-          alarms.map(alarm => <AlarmItem key={alarm.id} alarm={alarm} />)
-        }
+        { alarms.map(alarm => <AlarmItem key={alarm.id} alarm={alarm} />) }
       </div>
-    );
+    ));
   }
+
 }

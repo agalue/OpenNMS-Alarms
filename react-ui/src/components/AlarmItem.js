@@ -24,7 +24,7 @@ class AlarmItem extends React.Component {
         <div className="panel-heading clearfix">
           <Link to={`/alarms/${alarm.id}`} onClick={this.onClick}>
             <h3 className="panel-title">{getFormattedUei(alarm.uei)}</h3>
-            <span className="pull-right">{new Date(alarm.lastEventTime).toString()}</span>
+            <small className="pull-right">{new Date(alarm.lastEventTime).toString()}</small>
           </Link>
         </div>
         <SeverityPanelBody severity={alarm.severity}>

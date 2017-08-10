@@ -8,10 +8,10 @@ const mapStateToProps = (state) => ({
   alarms: state.alarmsReducer.alarms
 })
 
-const mapDispatchToProps = (dispatch) => ({
-  fetchAlarms: () => dispatch(actions.fetchAlarms()),
-  setAlarm: (alarm) => dispatch(actions.setAlarm(alarm))
-})
+const mapDispatchToProps = {
+  fetchAlarms: actions.fetchAlarms,
+  setAlarm: actions.setAlarm
+}
 
 const AlarmsContainer = connect(
   mapStateToProps,

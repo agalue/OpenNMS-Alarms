@@ -17,6 +17,12 @@ export const types = {
   FETCH_ALARMS_REJECTED: 'FETCH_ALARMS_REJECTED'
 }
 
+const internalTypes = {
+  FETCH_ALARMS_PENDING: 'FETCH_ALARMS_PENDING',
+  FETCH_ALARMS_FULFILLED: 'FETCH_ALARMS_FULFILLED',
+  FETCH_ALARMS_REJECTED: 'FETCH_ALARMS_REJECTED'
+}
+
 export const actions = {
   fetchAlarms: () => ({
     type: types.FETCH_ALARMS,
@@ -34,14 +40,14 @@ export const defaultState = {
   error: null
 };
 
-export default (state = defaultState, action) => {
+export function alarmsReducer(state = defaultState, action) {
   switch (action.type) {
-    case types.FETCH_ALARMS_PENDING:
+    case internalTypes.FETCH_ALARMS_PENDING:
       return {...state, loading: true }
-    case types.FETCH_ALARMS_FULFILLED:
+    case internalTypes.FETCH_ALARMS_FULFILLED:
       let alarms = action.payload.alarm;
       return {...state, loading: false, alarms }
-    case types.FETCH_ALARMS_REJECTED:
+    case internalTypes.FETCH_ALARMS_REJECTED:
       let error = action.payload.message;
       return {...state, loading: false, error }
     default:

@@ -4,8 +4,8 @@ import Alarms from './Alarms';
 import { actions } from '../redux/modules/alarms';
 
 const mapStateToProps = (state) => ({
-  loading: state.alarmsReducer.loading,
-  alarms: state.alarmsReducer.alarms
+  loading: state.alarms.loading,
+  alarms: state.alarms.alarms
 })
 
 const mapDispatchToProps = {

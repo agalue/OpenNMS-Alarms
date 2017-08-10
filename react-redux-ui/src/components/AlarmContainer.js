@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Alarm from './Alarm';
 
 const mapStateToProps = (state) => ({
-  alarm: state.alarmReducer
+  alarm: state.alarm
 })
 
 const AlarmContainer = connect(

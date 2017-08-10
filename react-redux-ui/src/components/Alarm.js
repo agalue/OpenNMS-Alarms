@@ -10,7 +10,7 @@ function AlarmDescription({alarm}) {
     <div className="panel panel-default">
       <div className="panel-heading clearfix">
         <h3 className="panel-title">Alarm ID {alarm.id}</h3>
-        <span className="pull-right">{new Date(alarm.lastEventTime).toString()}</span>
+        <small className="pull-right">{new Date(alarm.lastEventTime).toString()}</small>
       </div>
       <SeverityPanelBody severity={alarm.severity}>
         <HTMLContent content={alarm.description} />

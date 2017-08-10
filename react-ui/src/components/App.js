@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Redirect } from 'react-router-dom';
+import { BrowserRouter, Route, Redirect } from 'react-router-dom';
 
 import Alarms from './Alarms';
 import Alarm from './Alarm';
@@ -29,12 +29,14 @@ export default class App extends React.Component {
 
   render() {
     return(
-      <div className="container">
-        <h1>OpenNMS Alarms</h1>
-        <Route exact path='/alarms' render={() => <Alarms {...this.state} fetchAlarms={this.fetchAlarms} setAlarm={this.setAlarm}/>} />
-        <Route path='/alarms/:id' render={() => <Alarm alarm={this.state.selected}/>} />
-        <Redirect from='*' to='/alarms' />
-      </div>
+      <BrowserRouter>
+        <div className="container">
+          <h1>OpenNMS Alarms</h1>
+          <Route exact path='/alarms' render={() => <Alarms {...this.state} fetchAlarms={this.fetchAlarms} setAlarm={this.setAlarm}/>} />
+          <Route path='/alarms/:id' render={() => <Alarm alarm={this.state.selected}/>} />
+          <Redirect from='*' to='/alarms' />
+        </div>
+      </BrowserRouter>
     )
   }
 

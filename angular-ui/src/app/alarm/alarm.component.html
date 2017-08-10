@@ -4,29 +4,31 @@
   </button>
 </p>
 
-<div class="panel panel-default" *ngIf="alarm != null; else elseBlock">
-  <div class="panel-heading">
-    <h3 class="panel-title">Alarm ID {{ alarm.id }}</h3>
+<div *ngIf="alarm != null; else elseBlock">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Alarm ID {{ alarm.id }}</h3>
+    </div>
+    <div [class]="getBodyClass()" [innerHTML]="alarm.description"></div>
   </div>
-  <div [class]="getBodyClass()" [innerHTML]="alarm.description"></div>
-</div>
 
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <h3 class="panel-title">Parameters</h3>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Parameters</h3>
+    </div>
+    <div [class]="getBodyClass()">
+      <table class="table table-condensed table-hover" *ngIf="alarm.parameters && alarm.parameters.length > 0; else noParams">
+        <tr *ngFor="let p of alarm.parameters">
+          <th>{{ p.name }}</th>
+          <td>{{ p.value }}</td>
+        </tr>
+      </table>
+      <ng-template #noParams>
+        <p>No Parameters.</p>
+      </ng-template>
+    </div>
   </div>
-  <div [class]="getBodyClass()">
-    <table class="table table-condensed table-hover" *ngIf="alarm.parameters && alarm.parameters.length > 0; else noParams">
-      <tr *ngFor="let p of alarm.parameters">
-        <th>{{ p.name }}</th>
-        <td>{{ p.value }}</td>
-      </tr>
-    </table>
-    <ng-template #noParams>
-      <p>No Parameters.</p>
-    </ng-template>
-  </div>
-</div>
+<div>
 
 <ng-template #elseBlock>
   <div className="jumbotron">

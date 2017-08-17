@@ -7,12 +7,13 @@ There are 3 implementations:
 * A simple `Angular 4` app called `angular-ui`
 * A simple `React` app called `react-ui`
 * A `React+Redux` app called `react-redux-ui`
+* A `React+MobX` app called `react-mobx-ui`
 
-The idea is just compare the 3 technologies. Redux is not technically required on a React application this simple, I just wanted to give it a try.
+The idea is just compare the technologies. Redux or Mobx are not technically required on a React application this simple, but I just wanted to give it a try.
 
 The Angular app is very straight forward and it is easy to follow. As expected, you'll see 2 APIs call executed, one to retrieve the alarms and one to retrieve a given alarm after changing the route.
 
-The two React versions behave the same. One uses Redux and the other doesn't. The main difference is that all the state is handled on the App component for the simple version, whereas the state is handled by the Redux store on the other version. In both cases, only a single call to the API is generated.
+The React versions behave the same. One uses Redux, one uses MobX, and the other doesn't use any third party libraries to handle state. In all cases, only a single call to the API is generated.
 
 ## Installation
 
@@ -28,6 +29,14 @@ ng serve
 
 ```sh
 cd react-redux-ui
+yarn
+yarn start
+```
+
+Or,
+
+```sh
+cd react-mobx-ui
 yarn
 yarn start
 ```

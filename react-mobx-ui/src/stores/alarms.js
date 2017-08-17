@@ -10,7 +10,7 @@ const REQUEST = {
   }
 };
 
-class AlarmsStore {
+export default class AlarmsStore {
 
   @observable alarms = [];
   @observable alarm = null;
@@ -38,6 +38,3 @@ class AlarmsStore {
   }
 
 }
-
-const alarmsStore = new AlarmsStore();
-export default alarmsStore;

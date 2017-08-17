@@ -47,10 +47,11 @@ function AlarmParameters({alarm}) {
   )
 }
 
-@inject('alarmsStore') @observer
+@inject('store')
+@observer
 export default class Alarm extends React.Component {
   render() {
-    let { alarm } = this.props.alarmsStore;
+    let { alarm } = this.props.store;
     return(
       <div>
         <BackButton/>

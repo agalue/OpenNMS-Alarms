@@ -3,16 +3,17 @@ import { inject, observer } from 'mobx-react';
 
 import AlarmItem from './AlarmItem';
 
-@inject('alarmsStore') @observer
+@inject('store')
+@observer
 export default class Alarms extends React.Component {
 
   componentDidMount() {
-    let { alarms, fetchAlarms } = this.props.alarmsStore;
+    let { alarms, fetchAlarms } = this.props.store;
     alarms.length === 0 && fetchAlarms();
   }
 
   render() {
-    let { alarms, isLoading, fetchAlarms, setAlarm } = this.props.alarmsStore;
+    let { alarms, isLoading, fetchAlarms, setAlarm } = this.props.store;
     return (isLoading ? (
       <div className="jumbotron">
         <h3>Loading ... Please wait.</h3>

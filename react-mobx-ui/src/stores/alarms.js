@@ -1,4 +1,4 @@
-import { observable, action } from 'mobx';
+import { observable, action, runInAction } from 'mobx';
 
 const URL = 'https://demo.opennms.org/opennms/rest/alarms';
 
@@ -16,18 +16,21 @@ class AlarmsStore {
   @observable alarm = null;
   @observable isLoading = false;
 
-  @action fetchAlarms = () => {
+  @action fetchAlarms = async() => {
     this.isLoading = true;
-    fetch(`${URL}?limit=0`, REQUEST)
-      .then(response => response.json())
-      .then(data => {
+    try {
+      let response = await fetch(`${URL}?limit=0`, REQUEST);
+      let data = await response.json();
+      runInAction(() => {
         this.alarms = data.alarm;
         this.isLoading = false;
-      })
-      .catch(error => {
-        console.error(error);
+      });
+    } catch (error) {
+      console.error(error);
+      runInAction(() => {
         this.isLoading = false;
-      })
+      });
+    }
   }
 
   @action setAlarm = (alarm) => {

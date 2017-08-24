@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Alarm } from '../alarm';
 import { AlarmsService } from '../alarms.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { AlarmsService } from '../alarms.service';
 export class AlarmsComponent implements OnInit {
 
   loading = false;
-  alarms: Object[] = [];
+  alarms: Alarm[] = [];
 
   constructor(private alarmsService: AlarmsService) { }
 
@@ -17,17 +18,15 @@ export class AlarmsComponent implements OnInit {
     this.fetchAlarms();
   }
 
-  fetchAlarms() {
+  async fetchAlarms() {
     this.loading = true;
-    this.alarmsService.getAlarms()
-      .then(alarms => {
-        this.loading = false;
-        this.alarms = alarms;
-      })
-      .catch(error => {
-        this.loading = false;
-        console.error(error);
-      });
+    try {
+      this.alarms = await this.alarmsService.getAlarms();  
+    } catch (error) {
+      console.error(error);
+    } finally {
+      this.loading = false;      
+    }
   }
 
 }
